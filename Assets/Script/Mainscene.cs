@@ -1,16 +1,28 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Mainscene : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    private GameObject adjustPanel;
+
+void Start()
     {
-        
+        AudioManager.instance.PlayBGM(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  public void Playgame()
+  {
+    SceneManager.LoadScene("Cutscene01");
+  }
+
+  public void Exit()
+  {
+    Application.Quit();
+  }
+
+  public void ShowHideAdjustPanel(bool flag)
+  {
+    adjustPanel.SetActive(flag);
+  }
 }
