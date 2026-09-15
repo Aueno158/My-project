@@ -52,4 +52,28 @@ public class AudioManager : MonoBehaviour
             sfx[i].PlayOneShot(sfx[i].clip);
         }
     }
+
+    public void AdjustMasterVolume(float volume)
+    {
+        mixer.SetFloat("Master", volume);
+        PlayerPrefs.SetFloat("Master", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void AdjustSFXVolume(float volume)
+    {
+        mixer.SetFloat("SFX", volume);
+        PlayerPrefs.SetFloat("SFX", volume);
+        PlayerPrefs.Save();
+    }
+
+    public float LoadCurrentMasterVol()
+    {
+       return PlayerPrefs.GetFloat("Master", 0f);
+    }
+
+    public float LoadCurrentSFXVol()
+    {
+       return PlayerPrefs.GetFloat("SFX", 0f);
+    }
 }
