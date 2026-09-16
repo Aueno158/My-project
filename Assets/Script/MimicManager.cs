@@ -1,31 +1,34 @@
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
-using UnityEngine.UI; 
 
 public class MimicManager : MonoBehaviour
 {
-    [SerializeField]
-    private TMP_Text notiText;
+      private MeshRenderer rd;
+    public static MimicManager instance; 
 
-   [SerializeField]
-    private GameObject adjustPanel;
-     public static MimicManager Instance;
+    [Header("ใส่รูปกุญแจที่ต้องการโชว์")]
+    public GameObject keyResultObject; 
 
-      void Awake()
+    void Awake()
     {
-        Instance = this;
+        // กำหนดให้ instance คือตัวมันเองตอนที่เกมเริ่ม
+        instance = this; 
     }
 
-     public void ShowNotiText(string s)
+    void Start()
     {
-        notiText.text = s;
+         rd = GetComponent<MeshRenderer>();
+        // ซ่อนกุญแจไว้ก่อนตอนเริ่มเกม
+        if (keyResultObject != null) 
+        {
+            keyResultObject.SetActive(false);
+        }
     }
 
-     public void ShowHideAdjustPanel(bool flag)
-  {
-    adjustPanel.SetActive(flag);
-  }
-
-
+    public void FoundKey()
+    {
+        if (keyResultObject != null)
+        {
+            keyResultObject.SetActive(true); // โชว์กุญแจ
+        }
+    }
 }
