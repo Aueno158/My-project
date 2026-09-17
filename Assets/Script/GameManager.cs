@@ -9,9 +9,10 @@ public class GameManager : MonoBehaviour
      [SerializeField]
     private TMP_Text KeyText;
 
-    public static GameManager Instance { get; private set; }
+        [SerializeField]
+    private GameObject restartButton;
 
-     private int foundKeyCount = 0;
+    public static GameManager Instance { get; private set; }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -28,15 +29,16 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    public void ShowKeyText(int n)
+
+    public void ShowHideRestartButton(bool flag)
     {
-        foundKeyCount += n;
-        KeyText.text = $"Keys Found: {foundKeyCount}";
+        restartButton.SetActive(flag);
     }
 
-     public void ShowString(string text)
+    public void Exit()
     {
-        KeyText.text = text;
+        ShowHideRestartButton(false);
+        Application.Quit();
     }
 
 }
