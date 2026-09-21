@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
      [SerializeField]
     private TMP_Text KeyText;
 
-        [SerializeField]
-    private GameObject restartButton;
+      [SerializeField]
+    private Player player;
 
     public static GameManager Instance { get; private set; }
 
@@ -30,14 +30,13 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void ShowHideRestartButton(bool flag)
-    {
-        restartButton.SetActive(flag);
-    }
 
+    public void ShowNotiText(string s)
+    {
+            KeyText.text = s;
+    }
     public void Exit()
     {
-        ShowHideRestartButton(false);
         Application.Quit();
     }
 

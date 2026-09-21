@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-public class Happy : MonoBehaviour
+public class NotHappy : MonoBehaviour
 {
-
-    [SerializeField] 
+   [SerializeField] 
    private GameObject gameOverScreen;
 
    public void Playgame()

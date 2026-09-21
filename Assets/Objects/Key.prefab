@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 859065668008112640}
   - component: {fileID: 5724817581725187372}
   - component: {fileID: 3546976920925494242}
+  - component: {fileID: 6494139236164676871}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 2805488189799868529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.3000002, y: 11.8, z: -396.6}
-  m_LocalScale: {x: 29.91515, y: 29.91515, z: 29.91515}
+  m_LocalPosition: {x: -2.3, y: 13.151, z: -396.6}
+  m_LocalScale: {x: 13.9136505, y: 13.9136505, z: 13.9136505}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4665977622597685973}
@@ -107,12 +108,24 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6494139236164676871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2805488189799868529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb4eb6907b79f4293b41b54bab45edbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EvenCLick
 --- !u!1 &4084623874439930404
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,8 +152,8 @@ Transform:
   m_GameObject: {fileID: 4084623874439930404}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.14, z: -0.57}
-  m_LocalScale: {x: 0.09541795, y: 0.09541795, z: 0.09541795}
+  m_LocalPosition: {x: 0.000000055885, y: -0.14, z: -0.162}
+  m_LocalScale: {x: 0.35277125, y: 0.35277125, z: 0.35277125}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6268639730705374083}

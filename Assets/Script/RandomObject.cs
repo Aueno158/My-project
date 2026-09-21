@@ -4,7 +4,7 @@ using UnityEngine;
 public class RandomObject : MonoBehaviour
 {
     public GameObject[] myObjects;
-    public int spawnCount = 8; // จำนวนกล่องที่ต้องการสุ่มเกิด
+    public int spawnCount = 6; // จำนวนกล่องที่ต้องการสุ่มเกิด
 
     void Start()
     {
