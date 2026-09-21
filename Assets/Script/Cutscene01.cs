@@ -1,9 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class Cutscene01 : MonoBehaviour
 {
-   public void NextScene()
-  {
-    SceneManager.LoadScene("Cutscene02");
-  }
+    void Start()
+    {
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void NextScene()
+    {
+        SceneManager.LoadScene("Cutscene02");
+    }
 }

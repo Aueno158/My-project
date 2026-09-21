@@ -122,7 +122,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5457525343229034435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fad72386d46d482abbf0dd37c1db38f, type: 3}
+  m_Script: {fileID: 11500000, guid: 91671403f754c42c2b6b07bda55b28b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Finish
-  gameOverScreen: {fileID: 0}

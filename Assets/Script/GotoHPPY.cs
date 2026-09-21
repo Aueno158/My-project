@@ -6,6 +6,7 @@ public class Finish : MonoBehaviour
     [SerializeField]
     private GameObject gameOverScreen;
 
+
     public static Finish Instance;
 
     private void OnTriggerEnter(Collider other)
@@ -14,7 +15,11 @@ public class Finish : MonoBehaviour
         if (player == null)
             return;
 
-        if (player.HasKey)
+        if (player.HasPostIt)
+        {
+            SceneManager.LoadScene("EndingSpecial");
+        }
+        else if (player.HasKey)
         {
             SceneManager.LoadScene("Ending01");
         }
