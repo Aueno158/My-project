@@ -112,3 +112,7 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+Assets/Texture/Gameplay/find key.png.meta
+Assets/Texture/BadEND/แฮปปี้เหมือนกันแต่อะไร.png.meta
+Assets/Scenes/Gameplay.unity
+Assets/Objects/mimic.prefab
