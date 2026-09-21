@@ -5,66 +5,66 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Player : MonoBehaviour
 {
-    public Camera playerCamera;
-    public float walkSpeed = 45f;
-    public float runSpeed = 70f;
-    public float jumpPower = 7f;
-    public float gravity = 10f;
-    public float lookSpeed = 2f;
-    public float lookXLimit = 45f;
-    public float defaultHeight = 2f;
-    public float crouchHeight = 1f;
-    public float crouchSpeed = 3f;
+public Camera playerCamera;
+public float walkSpeed = 45f;
+public float runSpeed = 70f;
+public float jumpPower = 7f;
+public float gravity = 10f;
+public float lookSpeed = 2f;
+public float lookXLimit = 45f;
+public float defaultHeight = 2f;
+public float crouchHeight = 1f;
+public float crouchSpeed = 3f;
 
-    // เพิ่มตัวแปรเช็คกุญแจตรงนี้
-    public bool HasKey = false; 
+public bool HasKey = false; 
+public bool HasPostIt = false;
 
-    private Vector3 moveDirection = Vector3.zero;
-    private float rotationX = 0;
-    private CharacterController characterController;
+private Vector3 moveDirection = Vector3.zero;
+private CharacterController characterController;
 
-    private bool canMove = true;
+private bool canMove = true;
+private bool canRun = true;
 
-    void Start()
+void Start()
     {
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    void Update()
+void Update()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
 
-        bool isRunning = Input.GetKey(KeyCode.LeftShift);
-        float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Vertical") : 0;
-        float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
-        float movementDirectionY = moveDirection.y;
+bool isRunning = canRun && Input.GetKey(KeyCode.LeftShift);
+float curSpeedX = canMove ? (isRunning ? runSpeed : walkSpeed) * Mathf.Max(Input.GetAxis("Vertical"), 0f) : 0;
+float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
+float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
-        if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
+if (Input.GetButton("Jump") && canMove && characterController.isGrounded)
         {
             moveDirection.y = jumpPower;
         }
-        else
+else
         {
             moveDirection.y = movementDirectionY;
         }
 
-        if (!characterController.isGrounded)
+if (!characterController.isGrounded)
         {
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
-        if (Input.GetKey(KeyCode.R) && canMove)
+if (Input.GetKey(KeyCode.R) && canMove)
         {
             characterController.height = crouchHeight;
             walkSpeed = crouchSpeed;
             runSpeed = crouchSpeed;
 
         }
-        else
+else
         {
             characterController.height = defaultHeight;
             walkSpeed = 30f;
@@ -72,13 +72,15 @@ public class Player : MonoBehaviour
         }
 
         characterController.Move(moveDirection * Time.deltaTime);
-
-        if (canMove)
-        {
-            rotationX += -Input.GetAxis("Mouse Y") * lookSpeed;
-            rotationX = Mathf.Clamp(rotationX, -lookXLimit, lookXLimit);
-            playerCamera.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-            transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * lookSpeed, 0);
-        }
     }
+
+public void SetCanMove(bool value)
+{
+    canMove = value;
+}
+
+public void SetCanRun(bool value)
+{
+    canRun = value;
+}
 }

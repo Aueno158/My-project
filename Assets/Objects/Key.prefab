@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb4eb6907b79f4293b41b54bab45edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EvenCLick
+  keyCutsceneSprite: {fileID: 21300000, guid: a6612f8acb1964675937cc59c23dceed, type: 3}
 --- !u!1 &4084623874439930404
 GameObject:
   m_ObjectHideFlags: 0
